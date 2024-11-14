@@ -3,41 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrowserBox 代理 示例</title>
+    <title>BrowserBox 示例</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/browserbox/dist/browserbox.css">
     <script src="https://cdn.jsdelivr.net/npm/browserbox/dist/browserbox.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
-        #urlInput { width: 80%; padding: 10px; }
-        #loadButton { padding: 10px; }
         #browserContainer { border: 1px solid #ccc; margin-top: 10px; height: 600px; }
     </style>
 </head>
 <body>
-    <h1>BrowserBox 代理 示例</h1>
-    <p>请输入要访问的网址：</p>
-    <input type="text" id="urlInput" placeholder="例如：https://example.com">
-    <button id="loadButton">访问</button>
-
+    <h1>直接代理访问百度</h1>
     <div id="browserContainer"></div>
 
     <script>
         const browserbox = new BrowserBox('#browserContainer', {
-            url: '',  // 初始网址为空
+            url: 'https://www.baidu.com/',
             width: '100%',
             height: '600px'
         });
-
-        document.getElementById('loadButton').onclick = function() {
-            const url = document.getElementById('urlInput').value;
-            if (url) {
-                // 确保 URL 以 http:// 或 https:// 开头
-                const formattedUrl = url.startsWith('http://') || url.startsWith('https://') ? url : 'http://' + url;
-                browserbox.load(formattedUrl);
-            } else {
-                alert('请输入有效的网址');
-            }
-        };
     </script>
 </body>
 </html>
